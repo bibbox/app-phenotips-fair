@@ -2,5 +2,7 @@
 	"environment_replace": {},
 	"script_replace": [],
 	"permissions": {
+		"data/application.yml": 777,
+		"data/jupyter": 777
 	}
 }

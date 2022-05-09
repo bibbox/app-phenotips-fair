@@ -1,0 +1,167 @@
+version: '3'
+
+networks:
+    bibbox-default-network:
+      external: true
+
+services:
+  §§INSTANCE-phenotips:
+    image: bibbox/phenotips:1.4.9
+    container_name:  §§INSTANCE-phenotips-fair
+    restart: unless-stopped
+    networks:
+      - bibbox-default-network
+    links:
+      - §§INSTANCE-phenotips-db:phenotips-db
+    ports:
+      - "8010:8080"
+    depends_on:
+      - §§INSTANCE-phenotips-db
+    volumes: 
+      - ./data/phenotips/extapi:/project/src 
+  §§INSTANCE-phenotips-db:
+    image: mariadb:10.7.3
+    container_name: §§INSTANCE-phenotips-db-fair
+    restart: unless-stopped
+    networks:
+      - bibbox-default-network
+    user: root
+    environment:
+      - MYSQL_ROOT_PASSWORD=thispasswordisneverusedeveninsidethecontainer
+      - MYSQL_DATABASE=phenotips
+      - MYSQL_USER=phenotips
+      - MYSQL_PASSWORD=phenotips4bibbox
+    volumes:
+      - ./data/var/lib/mysql:/var/lib/mysql
+    proxy:
+     TYPE: PRIMARY
+     URLPREFIX: §§INSTANCE
+     TEMPLATE: default
+     DISPLAYNAME: 'PhenoTips'  
+
+  # fdp containers
+  jupyter-openspecimen-fdp:
+    image: jupyter/datascience-notebook:notebook-6.4.11
+    container_name:  §§INSTANCE-phenotips-fair-jupyter
+    links:
+      - fdp-client:fdp-client
+    restart: unless-stopped
+    networks:
+      - bibbox-default-network
+    environment:
+      - JUPYTER_TOKEN=FDP
+      - FDP_PUBLICURL=http://§§INSTANCE-fdp-client.§§BASEURL
+      - CATALOG_TITLE=§§CATALOG_TITLE
+      - CATALOG_VERSION=§§VERSION
+      - CATALOG_PUBLISHERNAME=§§PUBLISHERNAME
+      - CATALOG_PUBLISHEREMAIL=§§PUBLISHEREMAIL
+      - CATALOG_PUBLISHERUID=§§PUBLISHERUID
+      - CATALOG_DESCRIPTION=§§CATALOG_DESCRIPTION
+      - CATALOG_LANGUAGE=§§LANGUAGE
+      - CATALOG_HOMEPAGE=http://§§INSTANCE.§§BASEURL
+      - DATASET_TITLE=§§DATASET_TITLE
+      - DATASET_VERSION=§§VERSION
+      - DATASET_PUBLISHERNAME=§§PUBLISHERNAME
+      - DATASET_PUBLISHEREMAIL=§§PUBLISHEREMAIL
+      - DATASET_PUBLISHERUID=§§PUBLISHERUID
+      - DATASET_DESCRIPTION=§§DATASET_DESCRIPTION
+      - DATASET_LANGUAGE=§§LANGUAGE
+      - DATASET_THEMES_LIST=§§THEMES
+      - DATASET_KEYWORDS=§§KEYWORDS
+      - DATASET_ISSUED=§§ISSUED
+      - DATASET_LICENSE=§§LICENSE
+      - DATASET_RIGHTS=§§RIGHTS
+      - DATASET_CONTACTPOINT=§§PUBLISHEREMAIL
+      - DATASET_LANDINGPAGE=http://§§INSTANCE.§§BASEURL
+      - DISTRIBUTION_TITLE=PhenoTips Access URL
+      - DISTRIBUTION_VERSION=§§VERSION
+      - DISTRIBUTION_PUBLISHERNAME=§§PUBLISHERNAME
+      - DISTRIBUTION_PUBLISHEREMAIL=§§PUBLISHEREMAIL
+      - DISTRIBUTION_PUBLISHERUID=§§PUBLISHERUID
+      - DISTRIBUTION_DESCRIPTION=HTML PhenoTips Site
+      - DISTRIBUTION_LANGUAGE=§§LANGUAGE
+      - DISTRIBUTION_MEDIATYPE=text/html
+      - DISTRIBUTION_ISSUED=§§ISSUED
+      - DISTRIBUTION_LICENSE=§§LICENSE
+      - DISTRIBUTION_RIGHTS=§§RIGHTS
+      - DISTRIBUTION_ACCESSURL=http://§§INSTANCE.§§BASEURL
+      
+    ports:
+        - "8888:8888"
+    volumes:
+        - ./data/jupyter/home/jovyan/work:/home/jovyan/work
+    proxy:
+     TYPE: PRIMARY
+     URLPREFIX: §§INSTANCE-jupyter
+     TEMPLATE: default
+     DISPLAYNAME: 'PhenoTips-Jupyter'  
+
+  fdp:
+    image: fairdata/fairdatapoint:1.13.1
+    container_name:  §§INSTANCE-phenotips-fair-fdp
+    restart: unless-stopped
+    networks:
+      - bibbox-default-network
+    ports:
+      - "8080:80"
+    volumes:
+      - ./data/application.yml:/fdp/application.yml:ro
+    links:
+      - blazegraph:blazegraph
+      - mongo:mongo
+    proxy:
+     TYPE: PRIMARY
+     URLPREFIX: §§INSTANCE-fdp
+     TEMPLATE: default
+     DISPLAYNAME: 'PhenoTips-FDP'  
+    environment:
+      - CLIENTURL=http://§§INSTANCE-fdp-client.§§BASEURL
+#    depends_on:
+#      - virtuoso
+#    environment:
+#      - FDP_HOST=0.0.0.0
+#      - FDP_PORT=8888
+#    healthcheck:
+#        test: curl --silent --fail http://0.0.0.0:$${FDP_PORT} || exit 1
+#        interval: 5s
+#    links:
+#      - virtuoso:db
+
+  fdp-client:
+    image: fairdata/fairdatapoint-client:1.13.0
+    container_name:  §§INSTANCE-phenotips-fair-fdp-client
+    ports:
+      - 8088:80
+    environment:
+      - FDP_HOST=fdp
+    links:
+      - fdp:fdp
+    networks:
+      - bibbox-default-network
+    proxy:
+     TYPE: PRIMARY
+     URLPREFIX: §§INSTANCE-fdp-client
+     TEMPLATE: default
+     DISPLAYNAME: 'PhenoTips-FDP-Client'  
+
+
+  mongo:
+    image: mongo:4.0.12
+    container_name:  §§INSTANCE-phenotips-fair-fdp-mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data/mongo/data:/data/db
+    networks:
+      - bibbox-default-network
+
+  blazegraph:
+    image: metaphacts/blazegraph-basic:2.2.0-20160908.003514-6
+    container_name:  §§INSTANCE-phenotips-fair-fdp-blazegraph
+    ports:
+      - 8081:8080
+    volumes:
+      - ./data/blazegraph:/blazegraph-data
+    networks:
+      - bibbox-default-network
+
