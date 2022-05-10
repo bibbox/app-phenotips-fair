@@ -92,11 +92,11 @@ services:
     volumes:
         - ./data/jupyter/home/jovyan/work:/home/jovyan/work
     proxy:
-     TYPE: HELPER
-     URLPREFIX: §§INSTANCE-jupyter
-     TEMPLATE: websocket
-     PATH_TO_SOCKET:'api/kernels/'
-     DISPLAYNAME: 'PhenoTips-jupyter'
+      TYPE: HELPER
+      URLPREFIX:  §§INSTANCE-jupyter
+      TEMPLATE: websocket
+      DISPLAYNAME: 'FDPJupyter'
+      PATH_TO_SOCKET: '/api/kernels/'
 
   fdp:
     image: fairdata/fairdatapoint:1.13.1
