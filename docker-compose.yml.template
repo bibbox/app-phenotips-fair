@@ -92,8 +92,8 @@ services:
     volumes:
         - ./data/jupyter/home/jovyan/work:/home/jovyan/work
     proxy:
-     TYPE: HELPER
-        URLPREFIX:  §§INSTANCE-jupyter
+        TYPE: HELPER
+        URLPREFIX:§§INSTANCE-jupyter
         TEMPLATE: websocket
         PATH_TO_SOCKET: '/api/kernels/'
         DISPLAYNAME: 'PhenoTips-Jupyter'  
@@ -114,7 +114,7 @@ services:
     environment:
       - CLIENTURL=http://§§INSTANCE-fdp-client.§§BASEURL
     proxy:
-     TYPE: PRIMARY
+     TYPE: HELPER
      URLPREFIX: §§INSTANCE-fdp
      TEMPLATE: default
      DISPLAYNAME: 'PhenoTips-FDP'  
@@ -141,7 +141,7 @@ services:
     networks:
       - bibbox-default-network
     proxy:
-     TYPE: PRIMARY
+     TYPE: HELPER
      URLPREFIX: §§INSTANCE-fdp-client
      TEMPLATE: default
      DISPLAYNAME: 'PhenoTips-FDP-Client'  
