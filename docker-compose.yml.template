@@ -96,7 +96,7 @@ services:
      URLPREFIX: §§INSTANCE-jupyter
      TEMPLATE: websocket
      PATH_TO_SOCKET:'api/kernels/'
-     DISPLAYNAME: 'PhenoTips-Jupyter'
+     DISPLAYNAME: 'PhenoTips-jupyter'
 
   fdp:
     image: fairdata/fairdatapoint:1.13.1
