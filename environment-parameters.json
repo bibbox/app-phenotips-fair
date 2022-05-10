@@ -18,7 +18,7 @@
 	   "max_length": "128"
 	},
 	{
-	   "id":"Version",
+	   "id":"VERSION",
 	   "display_name":"Version",
 	   "type":"text",
 	   "default_value":"Default Value",
