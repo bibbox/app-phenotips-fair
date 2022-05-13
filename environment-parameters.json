@@ -1,4 +1,32 @@
 [
+
+	{
+	   "id":"JUPYTER_TOKEN",
+	   "display_name":"Jupyter access token",
+	   "type":"text",
+	   "default_value":"Default Value",
+	   "description":"",
+	   "min_length": "1",
+	   "max_length": "128"
+	},
+	{
+	   "id":"FDP_TITLE",
+	   "display_name":"FDP Title",
+	   "type":"text",
+	   "default_value":"Default Value",
+	   "description":"",
+	   "min_length": "1",
+	   "max_length": "128"
+	},
+	{
+	   "id":"FDP_DESCRIPTION",
+	   "display_name":"FDP JUPYTER_TOKEN",
+	   "type":"text",
+	   "default_value":"Default Value",
+	   "description":"",
+	   "min_length": "1",
+	   "max_length": "128"
+	},
 	{
 	   "id":"CATALOG_TITLE",
 	   "display_name":"Catalog Title",

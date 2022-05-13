@@ -7,7 +7,8 @@ repository:
         url: http://blazegraph:8080/blazegraph
         
 #ping:
-#    endpoint: http://bibbox-master-fdp
-#    interval: 60000 # milliseconds (only for test increase in production)
+#    enabled: false
+#    endpoint: http://phenofair2-fdp-client.silicolabv4.bibbox.org 
+#    interval: 600000 # milliseconds (only for test increase in production)
 
 

@@ -45,6 +45,8 @@ services:
       - bibbox-default-network
     environment:
       - JUPYTER_TOKEN=FDP
+      - FDP_TITLE=PhenoTips BIBBOX FDP
+      - FDP_DESCRIPTION=FAIR Data Point (FDP) for the BIBBOX App PhenoTips.
       - FDP_PUBLICURL=http://localhost:8088
       - CATALOG_TITLE=Main Phenotips Catalog
       - CATALOG_VERSION=1.0

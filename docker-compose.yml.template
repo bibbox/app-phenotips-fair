@@ -50,7 +50,9 @@ services:
     networks:
       - bibbox-default-network
     environment:
-      - JUPYTER_TOKEN=FDP
+      - JUPYTER_TOKEN=§§JUPYTER_TOKEN
+      - FDP_TITLE=§§FDP_TITLE
+      - FDP_DESCRIPTION=§§FDP_DESCRIPTION
       - FDP_PUBLICURL=http://§§INSTANCE-fdp-client.§§BASEURL
       - CATALOG_TITLE=§§CATALOG_TITLE
       - CATALOG_VERSION=§§VERSION
