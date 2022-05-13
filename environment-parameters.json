@@ -20,7 +20,7 @@
 	},
 	{
 	   "id":"FDP_DESCRIPTION",
-	   "display_name":"FDP JUPYTER_TOKEN",
+	   "display_name":"FDP Describtion",
 	   "type":"text",
 	   "default_value":"Default Value",
 	   "description":"",
