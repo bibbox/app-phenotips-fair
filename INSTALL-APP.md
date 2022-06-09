@@ -2,28 +2,28 @@
 
 ### Intsallation with BIBBOX
 
-Pleas fill all fields with appropriate data for the FDP
+Please fill all fields with appropriate data for the FDP
 
 ![Screenshot00](assets/install-screen-00.png)
 
 ### Set Up
 
-* start the application
-* phenotips will first intitialize its database (can take some minutes)
-* in the distrubution wizard click on **CONTINUE**
+* Start the application
+* Phenotips will first intitialize its database (can take some minutes)
+* In the distrubution wizard click on **CONTINUE**
 
 ![Screenshot01](assets/install-screen-01.png)
 
-* install the Phenotips Application interface by pressing **INSTALL** (this can take several minutes, up to a hour depending on your internet connectivity) 
+* Install the Phenotips Application interface by pressing **INSTALL** (this can take several minutes, up to a hour depending on your internet connectivity) 
 
 ![Screenshot02](assets/install-screen-02.png)
 
-* press **CONTINUE**. Further Phenotips components are now downloaded, maybe you run in a timeout, dont worry just login and the download of the components will continue
+* Press **CONTINUE**. Further Phenotips components are now downloaded, maybe you run in a timeout, dont worry just login and the download of the components will continue
 
 * INITIAL-USER:   admin
 * INITIAL-PASWORD admin
 
-* press **CONTINUE** in some screens and you should arive at
+* Press **CONTINUE** in some screens and you should arive at
 
 ![Screenshot03](assets/install-screen-03.png)
 
@@ -43,8 +43,6 @@ Execute jupyter notebook (/work/fillFDP.ipynb) by clicking the fast forward symb
     
 2. set User credentials (Mail: `albert.einstein@example.com`, Password: `password`)\
 PLEASE CHANGE DEFAULT PASSWORD!
-
-3. creates FDP data from imported molgenis data points (added to molgenis by uploading)
 
 ![Screenshot05.2](assets/run_jupyter.png)
 
