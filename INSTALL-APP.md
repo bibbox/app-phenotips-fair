@@ -49,7 +49,7 @@ PLEASE CHANGE DEFAULT PASSWORD!
 
 #### Change default password
 
-Open teh FDP-client via the app dashboard or by chnagung the subdomain of the url to `<instancename>-fdp-client`.
+Open teh FDP-client via the app dashboard or by changing the subdomain of the url to `<instancename>-fdp-client`.
 
 Default username is "albert.einstein@example.com" and password is set to "password".
 Log in at FAIR Data Point and change the password (top right corner: "edit profile")
