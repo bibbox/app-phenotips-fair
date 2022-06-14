@@ -33,7 +33,7 @@ Please fill all fields with appropriate data for the FDP
 
 #### Set up FAIR Data Point.
 
-Open Jupyter via the app dashboard or by chnagung the subdomain of the url to `<instancename>-juypter`:
+Open Jupyter via the app dashboard or by changing the subdomain of the url to `<instancename>-jupyter`:
 
 ![Screenshot05.1](assets/app_dashboard.png)
 
