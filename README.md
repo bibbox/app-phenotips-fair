@@ -6,7 +6,7 @@ A FAIR Data Point (FDP) helps the app PhenoTips to go FAIR (**F**indable, **A**c
 * approx. time with medium fast internet connection: **15 minutes**
 * initial user/passwordd: **Admin / admin**
 * This container can be installed as [BIBBOX APP](https://bibbox.readthedocs.io/en/latest/ "BIBBOX") or standalone. 
-* after the docker installation follow these [instructions](NSTALL-APP.md)
+* after the docker installation follow these [instructions](INSTALL-APP.md)
 
 ## Standalone Installation
 
