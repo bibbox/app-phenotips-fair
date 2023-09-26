@@ -4,7 +4,7 @@
 	   "id":"JUPYTER_TOKEN",
 	   "display_name":"Jupyter access token",
 	   "type":"text",
-	   "default_value":"Default Value",
+	   "default_value":"token",
 	   "description":"",
 	   "min_length": "1",
 	   "max_length": "128"
@@ -13,7 +13,7 @@
 	   "id":"FDP_TITLE",
 	   "display_name":"FDP Title",
 	   "type":"text",
-	   "default_value":"Default Value",
+	   "default_value":"fdp title",
 	   "description":"",
 	   "min_length": "1",
 	   "max_length": "128"
@@ -22,7 +22,7 @@
 	   "id":"FDP_DESCRIPTION",
 	   "display_name":"FDP Description",
 	   "type":"text",
-	   "default_value":"Default Value",
+	   "default_value":"fdp description",
 	   "description":"",
 	   "min_length": "1",
 	   "max_length": "128"
@@ -31,7 +31,7 @@
 	   "id":"CATALOG_TITLE",
 	   "display_name":"Catalog Title",
 	   "type":"text",
-	   "default_value":"Default Value",
+	   "default_value":"catalog title",
 	   "description":"",
 	   "min_length": "1",
 	   "max_length": "128"
@@ -40,7 +40,7 @@
 	   "id":"CATALOG_DESCRIPTION",
 	   "display_name":"Catalog Describtion",
 	   "type":"text",
-	   "default_value":"Default Value",
+	   "default_value":"catalogue description",
 	   "description":"",
 	   "min_length": "1",
 	   "max_length": "128"
@@ -49,7 +49,7 @@
 	   "id":"VERSION",
 	   "display_name":"Version",
 	   "type":"text",
-	   "default_value":"Default Value",
+	   "default_value":"enter version",
 	   "description":"",
 	   "min_length": "1",
 	   "max_length": "128"
@@ -58,7 +58,7 @@
 	   "id":"PUBLISHERNAME",
 	   "display_name":"Name of Publisher",
 	   "type":"text",
-	   "default_value":"Default Value",
+	   "default_value":"publisher name",
 	   "description":"",
 	   "min_length": "1",
 	   "max_length": "128"
@@ -67,7 +67,7 @@
 	   "id":"PUBLISHEREMAIL",
 	   "display_name":"Email of Publisher",
 	   "type":"text",
-	   "default_value":"Default Value",
+	   "default_value":"publisher@mail.com",
 	   "description":"",
 	   "min_length": "1",
 	   "max_length": "128"
@@ -75,7 +75,7 @@
 	   "id":"PUBLISHERUID",
 	   "display_name":"UID of Publisher",
 	   "type":"text",
-	   "default_value":"Default Value",
+	   "default_value":"uid",
 	   "description":"Unique id of Publisher e.g. ORCID",
 	   "min_length": "1",
 	   "max_length": "128"
@@ -83,31 +83,31 @@
 	   "id":"LANGUAGE",
 	   "display_name":"Language",
 	   "type":"text",
-	   "default_value":"Default Value",
-	   "description":"Language of Catalog and Dataset in IRI format. e.g. http://id.loc.gov/vocabulary/iso639-1/en",
+	   "default_value":"language",
+	   "description":"Please enter the language of Catalog and Dataset in IRI format. e.g. http://id.loc.gov/vocabulary/iso639-1/en",
 	   "min_length": "1",
 	   "max_length": "128"
 	},	{
 	   "id":"DATASET_TITLE",
 	   "display_name":"Dataset Title",
 	   "type":"text",
-	   "default_value":"Default Value",
-	   "description":"",
+	   "default_value":"title of dataset",
+	   "description":"Please enter the title of the dataset",
 	   "min_length": "1",
 	   "max_length": "128"
 	},	{
 	   "id":"DATASET_DESCRIPTION",
 	   "display_name":"Dataset Description",
 	   "type":"text",
-	   "default_value":"Default Value",
-	   "description":"",
+	   "default_value":"dataset description",
+	   "description":"Please enter the description of the dataset.",
 	   "min_length": "1",
 	   "max_length": "128"
 	},	{
 	   "id":"THEMES",
 	   "display_name":"Dataset Themes",
 	   "type":"text",
-	   "default_value":"Default Value",
+	   "default_value":"themes of dataset",
 	   "description":"List of ';' separated IRI's. e.g http://theme.org/theme1;http://theme.org/theme2",
 	   "min_length": "1",
 	   "max_length": "128"
@@ -115,7 +115,7 @@
 	   "id":"KEYWORDS",
 	   "display_name":"Dataset Keyword",
 	   "type":"text",
-	   "default_value":"Default Value",
+	   "default_value":"keywords",
 	   "description":"List of ';' separated Keyword. e.g. phenotips;phenotypes;family",
 	   "min_length": "1",
 	   "max_length": "128"
@@ -123,24 +123,24 @@
 	   "id":"ISSUED",
 	   "display_name":"Issued date and time",
 	   "type":"text",
-	   "default_value":"Default Value",
-	   "description":"Time and date of issuing in xsd format (e.g. \"2017-11-16T00:00:00Z\"^^xsd:dateTime) or Use the keyword 'now'",
+	   "default_value":"now",
+	   "description":"Please enter time and date of issuing in xsd format (e.g. \"2017-11-16T00:00:00Z\"^^xsd:dateTime) or Use the keyword 'now'",
 	   "min_length": "1",
 	   "max_length": "128"
 	},	{
 	   "id":"LICENSE",
 	   "display_name":"License",
 	   "type":"text",
-	   "default_value":"Default Value",
-	   "description":"IRI for License",
+	   "default_value":"enter your licence",
+	   "description":"Please enter IRI for License",
 	   "min_length": "1",
 	   "max_length": "128"
 	},	{
 	   "id":"RIGHTS",
 	   "display_name":"Rights",
 	   "type":"text",
-	   "default_value":"Default Value",
-	   "description":"IRI for Rights",
+	   "default_value":"define the rights",
+	   "description":"Please enter IRI for Rights",
 	   "min_length": "1",
 	   "max_length": "128"
 	}
