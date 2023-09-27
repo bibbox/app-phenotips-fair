@@ -1,47 +1,89 @@
-# PHENOTIPS BIBBOX application with FDP extension
+# phenotips-fair BIBBOX application
 
-A FAIR Data Point (FDP) helps the app PhenoTips to go FAIR (**F**indable, **A**ccessible, **I**nteroperable and **R**usable). 
+This container can be installed as [BIBBOX APP](https://bibbox.readthedocs.io/en/latest/ "BIBBOX App Store") or standalone. 
 
-## Hints
-* approx. time with medium fast internet connection: **15 minutes**
-* initial user/passwordd: **Admin / admin**
-* This container can be installed as [BIBBOX APP](https://bibbox.readthedocs.io/en/latest/ "BIBBOX") or standalone. 
-* after the docker installation follow these [instructions](INSTALL-APP.md)
+- after the docker installation follow these [instructions](INSTALL-APP.md)
 
-## Standalone Installation
+## Standalone Installation 
 
-Clone the github repsoitory and start the install.sh. If necessary change the ports and volume mounts in `docker-compose.yml`.  
+Clone the github repository. If necessary change the ports in the environment file `.env` and the volume mounts in `docker-compose.yml`.
 
-All data for the **FDP** are set in the `docker-compose.yml` as enviroment variables for the Jupyter container.
+```
+git clone https://github.com/bibbox/app-phenotips-fair
+cd app-phenotips-fair
+docker-compose up -d
+```
 
-`sudo git clone https://github.com/bibbox/app-phenotips`
-
-`sudo chmod +x install.sh`
-
-`sudo ./install.sh`
-
-
-After the installation (might take a few minutes) you need to make some configuration follow these **[instructions](INSTALL-APP.md)**. Finally you can open **http://localhost:8010** in your browser to access PhenoTips.
+The main app can be opened and set up at
+```
+http://localhost:8010
+```
 
 ## Install within BIBBOX
 
-Within BIBBOX you can use the [BIBBOX](https://bibbox.readthedocs.io/en/latest/ "BIBBOX") to install a lot of software tools. 
+Visit the BIBBOX page and find the App by its name in the Store. Click on the symbol and select Install. Then fill the parameters below and name your app click install again.
 
-During the installations you are ask to provide the information for the FDP. Please fill these fields with the appropriate text. Pay attention fields marked with IRI and provide appropriate values for the fields *Languge*, *Themes*, *License* and *Rights*.
+## Docker Images used
+  - [bibbox/phenotips](https://hub.docker.com/r/bibbox/phenotips) 
+  - [mariadb](https://hub.docker.com/r/mariadb) 
+  - [jupyter/datascience-notebook](https://hub.docker.com/r/jupyter/datascience-notebook) 
+  - [fairdata/fairdatapoint](https://hub.docker.com/r/fairdata/fairdatapoint) 
+  - [fairdata/fairdatapoint-client](https://hub.docker.com/r/fairdata/fairdatapoint-client) 
+  - [mongo](https://hub.docker.com/r/mongo) 
+  - [metaphacts/blazegraph-basic](https://hub.docker.com/r/metaphacts/blazegraph-basic) 
 
-After the installation you will find your application in the dashboard. You need to make some configuration before you can use the application **please follow these [instructions](INSTALL-APP.md)**.
-
-## Docker Images Used
- * [BIBBOX/phenotips](https://hub.docker.com/r/bibbox/phenotips/) 
- * [mariadb](https://hub.docker.com/_/mariadb), offical mariadb container
 
  
 ## Install Environment Variables
-  * MYSQL_ROOT_PASSWORD = password, only used within the docker container
-  * MYSQL_DATABASE = name of the mysql database, typical *phenotips*. The DB file is stored in the mounted volume
-  * MYSQL_USER = name of the mysql user, typical *phenotips*
-  * MYSQL_PASSWORD = mysql user password, only used within the docker container
+  - JUPYTER_TOKEN = 
+  - FDP_TITLE = 
+  - FDP_DESCRIPTION = 
+  - CATALOG_TITLE = 
+  - CATALOG_DESCRIPTION = 
+  - VERSION = 
+  - PUBLISHERNAME = 
+  - PUBLISHEREMAIL = 
+  - PUBLISHERUID = Unique id of Publisher e.g. ORCID
+  - LANGUAGE = Please enter the language of Catalog and Dataset in IRI format. e.g. http://id.loc.gov/vocabulary/iso639-1/en
+  - DATASET_TITLE = Please enter the title of the dataset
+  - DATASET_DESCRIPTION = Please enter the description of the dataset.
+  - THEMES = List of ';' separated IRI's. e.g http://theme.org/theme1;http://theme.org/theme2
+  - KEYWORDS = List of ';' separated Keyword. e.g. phenotips;phenotypes;family
+  - ISSUED = Please enter time and date of issuing in xsd format (e.g. "2017-11-16T00:00:00Z"^^xsd:dateTime) or Use the keyword 'now'
+  - LICENSE = Please enter IRI for License
+  - RIGHTS = Please enter IRI for Rights
 
+  
+The default values for the standalone installation are:
+  - JUPYTER_TOKEN = token
+  - FDP_TITLE = fdp title
+  - FDP_DESCRIPTION = fdp description
+  - CATALOG_TITLE = catalog title
+  - CATALOG_DESCRIPTION = catalogue description
+  - VERSION = enter version
+  - PUBLISHERNAME = publisher name
+  - PUBLISHEREMAIL = publisher@mail.com
+  - PUBLISHERUID = uid
+  - LANGUAGE = language
+  - DATASET_TITLE = title of dataset
+  - DATASET_DESCRIPTION = dataset description
+  - THEMES = themes of dataset
+  - KEYWORDS = keywords
+  - ISSUED = now
+  - LICENSE = enter your licence
+  - RIGHTS = define the rights
+
+  
 ## Mounted Volumes
-* ./data/phenotips/extapi
-* ./data/var/lib/mysql
+### bibbox/phenotips Conatiner
+  - *./data/phenotips/extapi:/project/src*
+### mariadb Conatiner
+  - *./data/var/lib/mysql:/var/lib/mysql*
+### jupyter/datascience-notebook Conatiner
+  - *./data/jupyter/home/jovyan/work:/home/jovyan/work*
+### fairdata/fairdatapoint Conatiner
+  - *./data/application.yml:/fdp/application.yml:ro*
+### mongo Conatiner
+  - *./data/mongo/data:/data/db*
+### metaphacts/blazegraph-basic Conatiner
+  - *./data/blazegraph:/blazegraph-data*
