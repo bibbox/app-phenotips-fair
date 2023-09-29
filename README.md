@@ -76,16 +76,16 @@ The default values for the standalone installation are:
 
   
 ## Mounted Volumes
-### bibbox/phenotips Conatiner
+### bibbox/phenotips Container
   - *./data/phenotips/extapi:/project/src*
-### mariadb Conatiner
+### mariadb Container
   - *./data/var/lib/mysql:/var/lib/mysql*
-### jupyter/datascience-notebook Conatiner
+### jupyter/datascience-notebook Container
   - *./data/jupyter/home/jovyan/work:/home/jovyan/work*
-### fairdata/fairdatapoint Conatiner
+### fairdata/fairdatapoint Container
   - *./data/application.yml:/fdp/application.yml:ro*
-### mongo Conatiner
+### mongo Container
   - *./data/mongo/data:/data/db*
-### metaphacts/blazegraph-basic Conatiner
+### metaphacts/blazegraph-basic Container
   - *./data/blazegraph:/blazegraph-data*
 
