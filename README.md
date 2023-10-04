@@ -1,5 +1,7 @@
 # phenotips-fair BIBBOX application
 
+A FAIR Data Point (FDP) helps the app PhenoTips to go FAIR (Findable, Accessible, Interoperable and Rusable).
+
 This container can be installed as [BIBBOX APP](https://bibbox.readthedocs.io/en/latest/ "BIBBOX App Store") or standalone. 
 
 After the docker installation follow these [instructions](INSTALL-APP.md).
@@ -7,7 +9,7 @@ After the docker installation follow these [instructions](INSTALL-APP.md).
 ## Standalone Installation 
 
 Clone the github repository. If necessary change the ports in the environment file `.env` and the volume mounts in `docker-compose.yml`.
-
+All data for the FDP are set in the docker-compose.yml as enviroment variables for the Jupyter container.
 ```
 git clone https://github.com/bibbox/app-phenotips-fair
 cd app-phenotips-fair
@@ -89,3 +91,7 @@ The default values for the standalone installation are:
 ### metaphacts/blazegraph-basic Container
   - *./data/blazegraph:/blazegraph-data*
 
+## Hints
+
+•	approx. installation time with medium fast internet connection: 15 minutes
+•	initial user/passwordd: Admin / admin
