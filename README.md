@@ -1,4 +1,4 @@
-# phenotips-fair BIBBOX application
+# Phenotips-fair BIBBOX application
 
 A FAIR Data Point (FDP) helps the app PhenoTips to go FAIR (Findable, Accessible, Interoperable and Rusable).
 
